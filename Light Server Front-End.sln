@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Light_Server_Front_End", "Light Server Front-End\Light_Server_Front_End\Light_Server_Front_End.csproj", "{F4377B9B-2AC5-41AF-9798-91496A91D3F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "Light Server Front-End\DAL\DAL.csproj", "{4C856D83-D7AE-403B-8A40-C12CCAB0CA37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4377B9B-2AC5-41AF-9798-91496A91D3F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4377B9B-2AC5-41AF-9798-91496A91D3F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4377B9B-2AC5-41AF-9798-91496A91D3F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4377B9B-2AC5-41AF-9798-91496A91D3F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C856D83-D7AE-403B-8A40-C12CCAB0CA37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C856D83-D7AE-403B-8A40-C12CCAB0CA37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C856D83-D7AE-403B-8A40-C12CCAB0CA37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C856D83-D7AE-403B-8A40-C12CCAB0CA37}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E854EDFC-DA6C-4F76-9AC6-6C2FBCAF7D57}
+	EndGlobalSection
+EndGlobal
