@@ -1,0 +1,22 @@
+<app-ldl-instruction name="Pattern (02)"
+                     description="Sets the first n LEDs to a pattern which is then repeated along the entire length of LEDs"
+                     [instruction]="instruction"
+                     (onRemoveInstruction)="removeInstruction()"
+                     (onAddInstruction)="emitAddInstruction($event)"
+                     [showDuration]="true"
+                     [showPreviewButton]="true"
+                     [showRemoveButton]="true">
+  <p>
+    <ng-container *ngFor="let colour of colours; let i = index">
+      <app-ldl-pixel [canChangePixelColour]="true"
+                     [canDeletePixel]="colours.length > 2"
+                     [colour]="colour"
+                     (onChangeColour)="changeColour($event, i)"
+                     (onDelete)="deletePixel(i)">
+      </app-ldl-pixel>
+    </ng-container>
+    <button *ngIf="colours.length < 10" mat-mini-fab color="primary" aria-label="Add new pixel to the pattern" (click)="addPixel()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </p>
+</app-ldl-instruction>

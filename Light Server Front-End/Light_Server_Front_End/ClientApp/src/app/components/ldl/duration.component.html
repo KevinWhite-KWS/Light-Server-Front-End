@@ -1,0 +1,10 @@
+<label>Duration in rendering frames:</label>
+<mat-slider #durationSlider
+            max="255"
+            min="1"
+            step="1"
+            thumbLabel="true"
+            tickInterval="1"
+            [value]="duration"
+            (change)="changeDuration(durationSlider.value)">
+</mat-slider>

@@ -1,0 +1,31 @@
+<div>Instruction: {{instruction.times}}</div>
+
+<app-ldl-instruction name="Repeat"
+                     description="Repeats a set of instructions 1 or more times"
+                     [instruction]="instruction"
+                     (onRemoveInstruction)="removeInstruction()"
+                     (onAddInstruction)="emitAddInstruction($event)"
+                     [showDuration]="true"
+                     [showPreviewButton]="true"
+                     [showRemoveButton]="true">
+  <div>Number of times to loop?</div>
+  <mat-slider #loopsIterationsSlider
+              max="1000"
+              min="1"
+              step="1"
+              thumbLabel="true"
+              tickInterval="1"
+              [disabled]="instruction.times === 0"
+              [value]="instruction.times"
+              (change)="changeLoopIterations(loopsIterationsSlider.value)">
+  </mat-slider>
+  <mat-checkbox #infiniteLoopCheck (checked)="instruction.times === 0"
+                (change)="changeInfiniteLoop(infiniteLoopCheck.checked)">Infinite loop?</mat-checkbox>
+
+
+  <div>instructions:</div>
+  <div>{{instruction.instructions}}</div>
+
+  <app-ldl-program [program]="program"></app-ldl-program>
+
+</app-ldl-instruction>

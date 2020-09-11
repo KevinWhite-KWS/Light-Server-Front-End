@@ -1,0 +1,28 @@
+<app-ldl-instruction name="Slider (03)"
+                     description="Moves a slider (a length of pixels of a specified colour) gradually along the length of pixels"
+                     [instruction]="instruction"
+                     (onRemoveInstruction)="removeInstruction()"
+                     (onAddInstruction)="emitAddInstruction($event)"
+                     [showDuration]="true"
+                     [showPreviewButton]="true"
+                     [showRemoveButton]="true">
+  <div>Start colour:</div>
+  <app-ldl-pixel [colour]="instruction.startColour" [canChangePixelColour]="true"
+                 [canDeletePixel]="false" (onChangeColour)="changeStartColour($event)"></app-ldl-pixel>
+  <div>End colour:</div>
+  <app-ldl-pixel [colour]="instruction.endColour" [canChangePixelColour]="true"
+                 [canDeletePixel]="false" (onChangeColour)="changeEndColour($event)"></app-ldl-pixel>
+  <label>Step value:</label>
+  <mat-slider #stepSlider
+              max="50"
+              min="1"
+              step="1"
+              thumbLabel="true"
+              tickInterval="1"
+              [value]="instruction.step"
+              (change)="changeStep(stepSlider.value)">
+  </mat-slider>
+  <mat-checkbox #fadeInCheck (checked)="!instruction.fadeIn"
+                (change)="changeFadeIn(fadeInCheck.checked)">Fade out?</mat-checkbox>
+
+</app-ldl-instruction>

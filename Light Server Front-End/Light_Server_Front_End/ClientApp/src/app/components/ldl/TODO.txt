@@ -1,0 +1,13 @@
+TODO
+instruction component:
+  * Add instruction component
+  * Add standard functionality to instruction component
+
+pixel.component:
+  * [KW - 30/03/30 - DONE] Add comments and finish code as appropiate
+  * [KW - 30/03/20 - DONE] Turn-off ability to select alpha channel
+  * [KW - 30/03/30 - DONE] Make ability to change pixel colour configurable
+
+duration.component:
+  * [KW - 30/03/30] Add component to allow duration to be specified according to spec
+  * [KW - 30/03/30] Output duration as a hex encoded value

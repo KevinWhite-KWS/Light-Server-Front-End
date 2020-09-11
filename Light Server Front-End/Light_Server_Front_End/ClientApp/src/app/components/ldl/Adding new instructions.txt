@@ -1,0 +1,23 @@
+New instructions can be added to the set of instructions
+by following this procedure:
+
+1. Add a new enum value to the instruction-type enum for the new instruction.
+2. Add a class for the instruction:
+   Create a file in the instruction-class folder along the format of: instruction-{op-code}-{name}.ts.
+   Implement the instruction by adding properties and state as appropiate.
+3. Add an interface for the instruction:
+   Create a .ts an .html file int he instructions-ui folder for the instructon.  It should be
+   named in the format of: instruction-{op-code}-{name}.ts and (.html).
+   Implement the UI for the instruction and store state changes in an instance of the class
+   created in 1.
+4. Add an encoder class for the instruction which is reponsible for serialization and deserailziation:
+   Create a file int he encoders folder in the format of: instruction-{op-code}-{name}-encoder.ts
+   Implement the encoder.
+5. Add the encoder to the getInstructionEncoder factory method of the program-encoder.ts class.
+6. Add metadata for the new instruction to the instructions collection in the instruction-service.ts
+   file.
+7. Add a new entry to the createInstructionInstance factory method of instruction-service.ts class.
+7. Add a reference to the UI component in the program.component.html factory UI component.
+8. Add a reference to the component in app.module.ts
+
+Test and ensure the new instruction can be added to programs in the expected manner.

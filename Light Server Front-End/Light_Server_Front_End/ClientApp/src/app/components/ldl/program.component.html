@@ -1,0 +1,35 @@
+<div>LDL program</div>
+
+<ng-container *ngIf="!program || !program.instructions || program.instructions.length === 0">
+  <div>Add first instruction</div>
+  <app-ldl-instruction-chooser (onAddInstruction)="addFirstInstruction($event)"></app-ldl-instruction-chooser>
+</ng-container>
+
+
+<ng-container *ngFor="let instruction of program.instructions; let i = index;">
+  <!-- structure -->
+  <app-ldl-instruction-repeat *ngIf="instruction.instructionType === InstructionType.Repeat" [instruction]="instruction"
+                               (onRemoveInstruction)="removeInstruction($event)"
+                               (onAddInstruction)="addInstruction($event)"></app-ldl-instruction-repeat>
+
+
+  <!-- effects -->
+  <app-ldl-instruction-0-clear *ngIf="instruction.instructionType === InstructionType.Clear" [instruction]="instruction"
+                               (onRemoveInstruction)="removeInstruction($event)"
+                               (onAddInstruction)="addInstruction($event)"></app-ldl-instruction-0-clear>
+  <app-ldl-instruction-1-solid *ngIf="instruction.instructionType === InstructionType.Solid" [instruction]="instruction"
+                               (onRemoveInstruction)="removeInstruction($event)"
+                               (onAddInstruction)="addInstruction($event)"></app-ldl-instruction-1-solid>
+  <app-ldl-instruction-2-pattern *ngIf="instruction.instructionType === InstructionType.Pattern" [instruction]="instruction"
+                                 (onRemoveInstruction)="removeInstruction($event)"
+                                 (onAddInstruction)="addInstruction($event)"></app-ldl-instruction-2-pattern>
+  <app-ldl-instruction-3-slider *ngIf="instruction.instructionType === InstructionType.Slider" [instruction]="instruction"
+                                (onRemoveInstruction)="removeInstruction($event)"
+                                (onAddInstruction)="addInstruction($event)"></app-ldl-instruction-3-slider>
+  <app-ldl-instruction-4-fade *ngIf="instruction.instructionType === InstructionType.Fade" [instruction]="instruction"
+                              (onRemoveInstruction)="removeInstruction($event)"
+                              (onAddInstruction)="addInstruction($event)"></app-ldl-instruction-4-fade>
+  <app-ldl-instruction-5-stochastic *ngIf="instruction.instructionType === InstructionType.Stochastic" [instruction]="instruction"
+                                    (onRemoveInstruction)="removeInstruction($event)"
+                                    (onAddInstruction)="addInstruction($event)"></app-ldl-instruction-5-stochastic>
+</ng-container>

@@ -1,0 +1,6 @@
+<mat-form-field>
+  <mat-label>Insert instruction</mat-label>
+  <mat-select (selectionChange)="addInstruction($event.value)">
+    <mat-option *ngFor="let ins of instructions" [value]="ins.InstructionType">{{ins.Name}}</mat-option>
+  </mat-select>
+</mat-form-field>

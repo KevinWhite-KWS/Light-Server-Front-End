@@ -1,0 +1,12 @@
+<app-ldl-instruction name="Solid (01)"
+                     description="Sets all LEDs to the same colour"
+                     [instruction]="instruction"
+                     (onRemoveInstruction)="removeInstruction()"
+                     (onAddInstruction)="emitAddInstruction($event)"
+                     [showDuration]="true"
+                     [showPreviewButton]="true"
+                     [showRemoveButton]="true">
+  <div>Colour:</div>
+  <app-ldl-pixel [colour]="instruction.colour" [canChangePixelColour]="true"
+                 [canDeletePixel]="false" (onChangeColour)="changeColour($event)"></app-ldl-pixel>
+</app-ldl-instruction>

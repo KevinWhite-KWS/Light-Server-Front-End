@@ -1,0 +1,9 @@
+<app-ldl-instruction name="Clear (00)"
+                     description="Clears the LEDs by turning them all off"
+                     [instruction]="instruction"
+                     (onRemoveInstruction)="removeInstruction()"
+                     (onAddInstruction)="emitAddInstruction($event)"
+                     [showDuration]="true"
+                     [showPreviewButton]="true"
+                     [showRemoveButton]="true">
+  </app-ldl-instruction>

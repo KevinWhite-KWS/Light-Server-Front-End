@@ -1,0 +1,28 @@
+<app-ldl-instruction name="Slider (03)"
+                     description="Moves a slider (a length of pixels of a specified colour) gradually along the length of pixels"
+                     [instruction]="instruction"
+                     (onRemoveInstruction)="removeInstruction()"
+                     (onAddInstruction)="emitAddInstruction($event)"
+                     [showDuration]="true"
+                     [showPreviewButton]="true"
+                     [showRemoveButton]="true">
+  <div>Slider colour:</div>
+  <app-ldl-pixel [colour]="instruction.sliderColour" [canChangePixelColour]="true"
+                 [canDeletePixel]="false" (onChangeColour)="changeSliderColour($event)"></app-ldl-pixel>
+  <div>Background colour:</div>
+  <app-ldl-pixel [colour]="instruction.backgroundColour" [canChangePixelColour]="true"
+                 [canDeletePixel]="false" (onChangeColour)="changeBackgroundColour($event)"></app-ldl-pixel>
+  <label>Slider width:</label>
+  <mat-slider #widthSlider
+              max="50"
+              min="1"
+              step="1"
+              thumbLabel="true"
+              tickInterval="1"
+              [value]="instruction.sliderWidth"
+              (change)="changeSliderWidth(widthSlider.value)">
+  </mat-slider>
+  <mat-checkbox #startFarCheck (checked)="!instruction.startNear"
+                (change)="changeStartFar(startFarCheck.checked)">Start far?</mat-checkbox>
+
+</app-ldl-instruction>
