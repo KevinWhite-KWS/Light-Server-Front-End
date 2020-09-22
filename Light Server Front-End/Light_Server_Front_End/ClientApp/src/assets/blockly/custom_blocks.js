@@ -27,6 +27,30 @@ Blockly.defineBlocksWithJsonArray([
     "helpUrl": ""
   },
 
+
+  {
+    "type": "program",
+    "message0": "program description:= %1 %2 %3",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "programName",
+        "text": "My program"
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "input_statement",
+        "name": "instructions"
+      }
+    ],
+    "colour": 345,
+    "tooltip": "Contains an LDL program",
+    "helpUrl": ""
+  },
+
+
   {
     "type": "ins_0_clear",
     "message0": "Clear all LEDs %1 duration= %2",
