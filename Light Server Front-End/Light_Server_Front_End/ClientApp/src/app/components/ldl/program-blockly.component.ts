@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InstructionService } from "./instruction-class/instruction-service";
 
 declare var Blockly: any;
 
@@ -18,6 +19,7 @@ export class ProgramBlocklyComponent implements OnInit {
   workspace: any;
 
   constructor(
+    private instructionService: InstructionService
   ) {
   }
 
@@ -46,11 +48,25 @@ export class ProgramBlocklyComponent implements OnInit {
 
     console.log(code);
 
+    this.sendLightProgram(code);
+
     //this.program.xmlData = Blockly.Xml.domToText(
     //  Blockly.Xml.workspaceToDom(this.workspace)
     //);
     //console.log('saving the program - ', JSON.stringify(this.program));
     //this.programService.upsertOne(this.program);
     //this.router.navigate(['listProgram']);
+  }
+
+  sendLightProgram(serializedProgram:string) {
+    const username = 'Super';
+    const password = 'Qwert123$';
+    const ip = '192.168.1.210';
+
+
+    this.instructionService.uploadLdlProgram(ip, username, password, serializedProgram)
+      .subscribe(o => {
+      });
+
   }
 }

@@ -140,11 +140,11 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     console.log(serializedProgram);
 
-    /*
-    this.instructionService.uploadLdlProgram(ip, username, password, serializedProgram)
-      .subscribe(o => {
-      });
-    */
+    
+    //this.instructionService.uploadLdlProgram(ip, username, password, serializedProgram)
+    //  .subscribe(o => {
+    //  });
+    
   }
 
 
