@@ -137,6 +137,122 @@ Blockly.defineBlocksWithJsonArray([
   },
 
   {
+    "type": "ins_3_slider",
+    "message0": "slider %1 duration:= %2 %3 width:= %4 %5 start at far side?:= %6 %7 slider colour:= %8 %9 background colour:= %10",
+    "args0": [
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "field_number",
+        "name": "duration",
+        "value": 1,
+        "min": 1,
+        "max": 255
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "field_number",
+        "name": "width",
+        "value": 1,
+        "min": 1,
+        "max": 50
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "field_checkbox",
+        "name": "startFar",
+        "checked": false
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "field_colour",
+        "name": "sliderColour",
+        "colour": "#ff0000"
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "field_colour",
+        "name": "backgroundColour",
+        "colour": "#00ff00"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 230,
+    "tooltip": "Moves a slider (a length of pixels of a specified colour) gradually along the length of pixels",
+    "helpUrl": ""
+  },
+
+
+  {
+    "type": "ins_4_fade",
+    "message0": "fade %1 duration:= %2 %3 step:= %4 %5 fade out?:= %6 %7 start colour:= %8 %9 end colour:= %10",
+    "args0": [
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "field_number",
+        "name": "duration",
+        "value": 1,
+        "min": 1,
+        "max": 255
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "field_number",
+        "name": "step",
+        "value": 1,
+        "min": 1,
+        "max": 50
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "field_checkbox",
+        "name": "fadeOut",
+        "checked": false
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "field_colour",
+        "name": "startColour",
+        "colour": "#000000"
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "field_colour",
+        "name": "endColour",
+        "colour": "#00ff00"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 230,
+    "tooltip": "Fades in or fades out the LEDs from the start colour to the end colour",
+    "helpUrl": ""
+  },
+
+
+  {
     type: 'begin',
     message0: 'Begin',
     nextStatement: 'any',
