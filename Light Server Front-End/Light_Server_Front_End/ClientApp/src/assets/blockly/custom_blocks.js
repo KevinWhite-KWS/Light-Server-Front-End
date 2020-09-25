@@ -27,6 +27,24 @@ Blockly.defineBlocksWithJsonArray([
     "helpUrl": ""
   },
 
+  {
+    "type": "pixelscolour",
+    "message0": "colour= %1",
+    "args0": [
+      {
+        "type": "field_colour",
+        "name": "colour",
+        "colour": "#ff0000"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 230,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+
 
   {
     "type": "program",
@@ -251,6 +269,35 @@ Blockly.defineBlocksWithJsonArray([
     "helpUrl": ""
   },
 
+  {
+    "type": "ins_5_stochastic",
+    "message0": "stochastic %1 duration:= %2 %3 %4",
+    "args0": [
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "field_number",
+        "name": "NAME",
+        "value": 1,
+        "min": 1,
+        "max": 255
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "input_statement",
+        "name": "colours"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 230,
+    "tooltip": "Randomly sets the LEDs to two or more colours",
+    "helpUrl": ""
+  },
 
   {
     type: 'begin',
