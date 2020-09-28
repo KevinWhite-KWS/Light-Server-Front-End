@@ -47,6 +47,46 @@ Blockly.defineBlocksWithJsonArray([
 
 
   {
+    "type": "repeat",
+    "message0": "Repeat %1 Infinite? %2 %3 Number of times to loop:= %4 %5 %6",
+    "args0": [
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "field_checkbox",
+        "name": "infiniteLoop",
+        "checked": true
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "field_number",
+        "name": "numberOfLoops",
+        "value": 2,
+        "min": 2,
+        "max": 255
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "input_statement",
+        "name": "instructions"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 230,
+    "tooltip": "Repeats a set of instruction 2 or more times or an infinite number of times",
+    "helpUrl": ""
+  },
+
+
+
+  {
     "type": "program",
     "message0": "program description:= %1 %2 %3",
     "args0": [
@@ -278,7 +318,7 @@ Blockly.defineBlocksWithJsonArray([
       },
       {
         "type": "field_number",
-        "name": "NAME",
+        "name": "duration",
         "value": 1,
         "min": 1,
         "max": 255
@@ -296,6 +336,38 @@ Blockly.defineBlocksWithJsonArray([
     "nextStatement": null,
     "colour": 230,
     "tooltip": "Randomly sets the LEDs to two or more colours",
+    "helpUrl": ""
+  },
+
+
+  {
+    "type": "ins_6_blocks",
+    "message0": "Blocks %1 duration := %2 %3 %4",
+    "args0": [
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "field_number",
+        "name": "duration",
+        "value": 1,
+        "min": 1,
+        "max": 255
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "input_statement",
+        "name": "blocks",
+        "check": "fixedpixelscolour"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 290,
+    "tooltip": "Sets the LEDs to two or more blocks of colours where each block occupies a particular percentage of the available LEDs",
     "helpUrl": ""
   },
 
