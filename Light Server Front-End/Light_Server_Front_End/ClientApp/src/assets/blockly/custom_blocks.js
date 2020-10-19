@@ -22,7 +22,7 @@ Blockly.defineBlocksWithJsonArray([
     "inputsInline": true,
     "previousStatement": null,
     "nextStatement": null,
-    "colour": 230,
+    "colour": 290,
     "tooltip": "",
     "helpUrl": ""
   },
@@ -40,7 +40,7 @@ Blockly.defineBlocksWithJsonArray([
     "inputsInline": true,
     "previousStatement": null,
     "nextStatement": null,
-    "colour": 230,
+    "colour": 290,
     "tooltip": "",
     "helpUrl": ""
   },
@@ -79,7 +79,7 @@ Blockly.defineBlocksWithJsonArray([
     "inputsInline": true,
     "previousStatement": null,
     "nextStatement": null,
-    "colour": 230,
+    "colour": 210,
     "tooltip": "Repeats a set of instruction 2 or more times or an infinite number of times",
     "helpUrl": ""
   },
@@ -103,7 +103,7 @@ Blockly.defineBlocksWithJsonArray([
         "name": "instructions"
       }
     ],
-    "colour": 345,
+    "colour": 210,
     "tooltip": "Contains an LDL program",
     "helpUrl": ""
   },
@@ -127,7 +127,7 @@ Blockly.defineBlocksWithJsonArray([
     "inputsInline": true,
     "previousStatement": null,
     "nextStatement": null,
-    "colour": 290,
+    "colour": 360,
     "tooltip": "Clears the LEDs by turning them all off",
     "helpUrl": ""
   },
@@ -158,7 +158,7 @@ Blockly.defineBlocksWithJsonArray([
     "inputsInline": true,
     "previousStatement": null,
     "nextStatement": null,
-    "colour": 290,
+    "colour": 360,
     "tooltip": "Sets all LEDs to the same colour",
     "helpUrl": ""
   },
@@ -189,7 +189,7 @@ Blockly.defineBlocksWithJsonArray([
     "inputsInline": true,
     "previousStatement": null,
     "nextStatement": null,
-    "colour": 290,
+    "colour": 360,
     "tooltip": "Sets the first n LEDs to a pattern which is then repeated along the entire length of LEDs",
     "helpUrl": ""
   },
@@ -246,7 +246,7 @@ Blockly.defineBlocksWithJsonArray([
     "inputsInline": true,
     "previousStatement": null,
     "nextStatement": null,
-    "colour": 230,
+    "colour": 360,
     "tooltip": "Moves a slider (a length of pixels of a specified colour) gradually along the length of pixels",
     "helpUrl": ""
   },
@@ -304,7 +304,7 @@ Blockly.defineBlocksWithJsonArray([
     "inputsInline": true,
     "previousStatement": null,
     "nextStatement": null,
-    "colour": 230,
+    "colour": 360,
     "tooltip": "Fades in or fades out the LEDs from the start colour to the end colour",
     "helpUrl": ""
   },
@@ -334,7 +334,7 @@ Blockly.defineBlocksWithJsonArray([
     "inputsInline": true,
     "previousStatement": null,
     "nextStatement": null,
-    "colour": 230,
+    "colour": 360,
     "tooltip": "Randomly sets the LEDs to two or more colours",
     "helpUrl": ""
   },
@@ -366,7 +366,7 @@ Blockly.defineBlocksWithJsonArray([
     "inputsInline": true,
     "previousStatement": null,
     "nextStatement": null,
-    "colour": 290,
+    "colour": 360,
     "tooltip": "Sets the LEDs to two or more blocks of colours where each block occupies a particular percentage of the available LEDs",
     "helpUrl": ""
   },

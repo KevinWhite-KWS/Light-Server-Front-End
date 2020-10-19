@@ -15,6 +15,7 @@
     <PackageProjectUrl>https://www.ebenmonney.com/quickapp</PackageProjectUrl>
     <Company>EBENMONNEY</Company>
     <Version>3.0.0</Version>
+    <UserSecretsId>e1da371c-5cfe-4554-a908-f61a45301be5</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -152,7 +153,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\components\ldl\instruction-class\instruction-1-solid.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="ClientApp\src\app\components\ldl\program-blockly.component.ts">
+    <TypeScriptCompile Include="ClientApp\src\app\components\ldl\ProgramBlocklyComponent.component.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\app\components\ldl\instructions-ui\instruction-repeat.component.ts">

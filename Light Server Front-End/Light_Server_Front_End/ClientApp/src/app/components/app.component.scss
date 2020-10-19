@@ -1,7 +1,11 @@
 $footerHeight: 40px;
 
+#blocklyDiv {
+    position:absolute;
+}
+
 .app-container.app-component {
-    height: 100%;
+  height: 100%;
 }
 
 main.app-component {

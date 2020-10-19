@@ -77,8 +77,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 /* LDL components */
+import { FileSaverModule } from 'ngx-filesaver';
+
 import { ColorPickerModule } from 'ngx-color-picker';
 
 import { InstructionChooserComponent } from './components/ldl/instructions-ui/instruction-chooser.component';
@@ -124,8 +127,11 @@ import { InstructionService } from './components/ldl/instruction-class/instructi
     ChartsModule,
 
 
+
+
     /* LDL */
-    ColorPickerModule
+    ColorPickerModule,
+    FileSaverModule
   ],
   declarations: [
     AppComponent,
@@ -199,7 +205,8 @@ import { InstructionService } from './components/ldl/instruction-class/instructi
     MatFormFieldModule,
     MatIconModule,
     MatMenuModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTooltipModule
   ]
 })
 export class AppModule {

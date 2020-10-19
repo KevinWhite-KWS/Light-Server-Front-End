@@ -1,21 +1,32 @@
-<h1>LDL program editing using blockly</h1>
+<div id="blocklyTools">
+  <button mat-icon-button (click)="saveProgram()" color="primary" aria-label="Button which saves the current LDL program" matTooltip="Saves the current program">
+    <mat-icon>save</mat-icon>
+  </button>
+  <button mat-icon-button (click)="uploadProgram()" color="primary" aria-label="Button which publishes the current LDL program" matTooltip="Publishes the current program to the LDL server">
+    <mat-icon>publish</mat-icon>
+  </button>
 
+  <input #ldlFile hidden="true" type="file" (change)="handleFileInput($event.target.files)" accept=".xml" />
+  <!--<label for="ldl-file" class="mat-icon-button mat-raised mat-primary">Choose File</label>-->
 
-<button (click)="saveProgram()">Save program</button>
-<div id="blocklyDiv" style="width: 100%; height: 100%"></div>
+  <button for="ldl-file" (click)="ldlFile.click()" mat-icon-button color="primary" aria-label="Button which uploads an existing program" matTooltip="Loads an existing LDL program">
+    <mat-icon>cloud_upload</mat-icon>
+  </button>
+
+  <button (click)="clearWorkspace()" mat-icon-button color="primary" aria-label="Button which clears all blocks from the current workspace" matTooltip="Clear all blocks from the workspace">
+    <mat-icon>clear</mat-icon>
+  </button>
+
+</div>
+
+<!-- see: https://codepen.io/juanialt/pen/prvzom -->
+<section id="blocklyContainer">
+  <div id="blocklyDiv"></div>
+</section>
+
+<!--<div id="blocklyDiv" style="width: 100%; height: 100%"></div>-->
 <xml id="toolbox" style="display: none">
-  <!--<category name="Control" colour="120">
-    <block type="controls_if"></block>
-    <block type="controls_repeat_ext" disabled="true"></block>
-  </category>
-  <category name="Text" colour="230">
-    <block type="text"></block>
-    <block type="text_print"></block>
-  </category>-->
-  <category name="Light Program" colour="360">
-    <!--<block type="controls_repeat_ext"></block>-->
-
-    <!--<block type="begin"></block>-->
+  <category name="LDL Instructions" colour="360">
     <block type="ins_0_clear"></block>
     <block type="ins_1_solid"></block>
     <block type="ins_2_pattern"></block>
@@ -23,11 +34,15 @@
     <block type="ins_4_fade"></block>
     <block type="ins_5_stochastic"></block>
     <block type="ins_6_blocks"></block>
+  </category>
 
-    <block type="repeat"></block>
+  <category name="LDL Values" colour="290">
     <block type="fixedpixelscolour"></block>
     <block type="pixelscolour"></block>
+  </category>
+
+  <category name="LDL Control" colour="210">
     <block type="program"></block>
-    <!--<block type="end"></block>-->
+    <block type="repeat"></block>
   </category>
 </xml>

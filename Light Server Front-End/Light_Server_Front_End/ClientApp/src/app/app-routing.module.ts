@@ -18,6 +18,8 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { Utilities } from './services/utilities';
 
+// LDL
+import { ProgramBlocklyComponent } from './components/ldl/program-blockly.component';
 
 
 export class LowerCaseUrlSerializer extends DefaultUrlSerializer {
@@ -43,6 +45,11 @@ export class LowerCaseUrlSerializer extends DefaultUrlSerializer {
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard], data: { title: 'Home' } },
+
+  // LDL
+  { path: 'editor', component: ProgramBlocklyComponent, data: { title: 'Editor' }},
+
+
   { path: 'login', component: LoginComponent, data: { title: 'Login' } },
   { path: 'customers', component: CustomersComponent, canActivate: [AuthGuard], data: { title: 'Customers' } },
   { path: 'products', component: ProductsComponent, canActivate: [AuthGuard], data: { title: 'Products' } },
