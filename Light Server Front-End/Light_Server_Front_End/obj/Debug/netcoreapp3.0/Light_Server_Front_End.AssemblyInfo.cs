@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("e1da371c-5cfe-4554-a908-f61a45301be5")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("EBENMONNEY")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright © 2019 www.ebenmonney.com")]

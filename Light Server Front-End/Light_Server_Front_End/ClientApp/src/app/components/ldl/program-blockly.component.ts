@@ -97,7 +97,10 @@ export class ProgramBlocklyComponent implements OnInit {
   sendLightProgram(serializedProgram:string) {
     const username = 'Super';
     const password = '1xYa1man2*';
-    const ip = '192.168.1.210';
+    // NOTE: connected to Eero
+    const ip = '192.168.5.210';
+    // NOTE: connected directly to router
+    // const ip = '192.168.1.210';
 
 
     this.instructionService.uploadLdlProgram(ip, username, password, serializedProgram)

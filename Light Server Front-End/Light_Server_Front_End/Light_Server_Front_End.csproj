@@ -153,7 +153,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\components\ldl\instruction-class\instruction-1-solid.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="ClientApp\src\app\components\ldl\ProgramBlocklyComponent.component.ts">
+    <TypeScriptCompile Include="ClientApp\src\app\components\ldl\program-blockly.component.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\app\components\ldl\instructions-ui\instruction-repeat.component.ts">

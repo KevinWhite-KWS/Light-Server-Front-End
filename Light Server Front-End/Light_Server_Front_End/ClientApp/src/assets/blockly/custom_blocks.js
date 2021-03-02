@@ -372,6 +372,55 @@ Blockly.defineBlocksWithJsonArray([
   },
 
   {
+    "type": "ins_7_rainbow",
+    "message0": "rainbow %1 duration:= %2 length= %3 steps= %4 start far? %5 %6 %7",
+    "args0": [
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "field_number",
+        "name": "duration",
+        "value": 1,
+        "min": 1,
+        "max": 255
+      },
+      {
+        "type": "field_number",
+        "name": "length",
+        "value": 10,
+        "min": 1,
+        "max": 255
+      },
+      {
+        "type": "field_number",
+        "name": "steps",
+        "value": 60,
+        "min": 1,
+        "max": 255
+      },
+      {
+        "type": "field_checkbox",
+        "name": "startFar",
+        "checked": true
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "input_statement",
+        "name": "colours"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 360,
+    "tooltip": "Sets the LEDs to a rainbow of colours",
+    "helpUrl": ""
+  },
+
+  {
     type: 'begin',
     message0: 'Begin',
     nextStatement: 'any',
