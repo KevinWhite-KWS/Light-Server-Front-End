@@ -196,7 +196,7 @@ Blockly.defineBlocksWithJsonArray([
 
   {
     "type": "ins_3_slider",
-    "message0": "slider %1 duration:= %2 %3 width:= %4 %5 start at far side?:= %6 %7 slider colour:= %8 %9 background colour:= %10",
+    "message0": "slider %1 duration:= %2 %3 width:= %4 %5 start at far side?:= %6 %7 head length:=%8 %9 tail length=%10 %11 slider colour:= %12 %13 background colour:= %14",
     "args0": [
       {
         "type": "input_dummy"
@@ -225,6 +225,26 @@ Blockly.defineBlocksWithJsonArray([
         "type": "field_checkbox",
         "name": "startFar",
         "checked": false
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "field_number",
+        "name": "headLength",
+        "value": 0,
+        "min": 0,
+        "max": 100
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "field_number",
+        "name": "tailLength",
+        "value": 0,
+        "min": 0,
+        "max": 100
       },
       {
         "type": "input_dummy"
