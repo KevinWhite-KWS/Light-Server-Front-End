@@ -63,5 +63,14 @@ namespace Light_Server_Front_End.Controllers
 
             return new OkResult();
         }
+
+        [HttpGet("servers")]
+        public async Task<IActionResult> FindServers()
+        {
+            var ldlServerDiscover = new LdlServerDiscover();
+            var ldlServers = ldlServerDiscover.DiscoverServers();
+
+            return new ObjectResult(ldlServers);
+        }
     }
 }

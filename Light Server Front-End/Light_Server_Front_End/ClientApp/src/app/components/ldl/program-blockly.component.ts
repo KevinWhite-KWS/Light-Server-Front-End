@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InstructionService } from "./instruction-class/instruction-service";
+import { InstructionService, LdlServerInfo } from "./instruction-class/instruction-service";
 
 import { saveAs } from 'file-saver';
 import { FileSaverService } from 'ngx-filesaver';
@@ -25,6 +25,8 @@ declare var Blockly: any;
 export class ProgramBlocklyComponent implements OnInit {
   workspace: any;
 
+  servers: LdlServerInfo[];
+
   constructor(
     private instructionService: InstructionService,
     private _FileSaverService: FileSaverService
@@ -44,6 +46,11 @@ export class ProgramBlocklyComponent implements OnInit {
     //    this.workspace
     //  );
     //}
+
+    this.instructionService.discoverServers().subscribe(servers => {
+      this.servers = servers as LdlServerInfo[];
+      const x = 10;
+    });
   }
 
   handleFileInput(files: FileList) {
@@ -103,9 +110,18 @@ export class ProgramBlocklyComponent implements OnInit {
     // const ip = '192.168.1.210';
 
 
-    this.instructionService.uploadLdlProgram(ip, username, password, serializedProgram)
-      .subscribe(o => {
-      });
+    // send the program to each of the available servers
+    if (!this.servers) {
+      return;
+    }
+
+    this.servers.forEach(s => {
+
+      console.log("Sending program to server @" + s.ipAddress);
+      this.instructionService.uploadLdlProgram(s.ipAddress, username, password, serializedProgram)
+        .subscribe(o => {
+        });
+    });
 
   }
 }

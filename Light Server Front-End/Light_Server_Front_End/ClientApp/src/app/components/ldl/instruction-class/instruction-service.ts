@@ -12,6 +12,11 @@ import { FadeInstruction } from './instruction-4-fade';
 import { StochasticInstruction } from './instruction-5-stochastic';
 import { RepeatInstruction } from "./instruction-repeat";
 
+export class LdlServerInfo {
+  ipAddress: string;
+  server: string;
+}
+
 
 /**
  * Provides services to retrieve instruction
@@ -102,11 +107,17 @@ export class InstructionService {
 
 
     return this.http.post(
-      ldlProgramUploadEndpoint
-      , JSON.stringify(ldlProgram)
-      , { headers: new HttpHeaders().set('Content-Type', 'application/json') }
+      ldlProgramUploadEndpoint,
+      JSON.stringify(ldlProgram),
+      { headers: new HttpHeaders().set('Content-Type', 'application/json') }
       // , null
       // , { params: params }
     );
+
+  }
+
+  discoverServers() {
+    const ldlDiscoverEndpoint = `https://localhost:44350/api/LightServices/servers`;
+    return this.http.get(ldlDiscoverEndpoint);
   }
 }
