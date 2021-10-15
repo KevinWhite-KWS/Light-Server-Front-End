@@ -1,0 +1,72 @@
+<div id="blocklyTools">
+
+  <button mat-icon-button (click)="goHome()" color="primary"
+    aria-label="Button which navigates back to the home page" matTooltip="Back to home">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+
+  <span style="border-left: 1px solid grey; border-right:1px solid grey;">
+    <button mat-icon-button (click)="saveProgram()" color="primary" [disabled]="disableSaveButton ? 'disabled' : null"
+            aria-label="Button which saves the current LDL program" matTooltip="Saves the current program">
+      <mat-icon>save</mat-icon>
+    </button>
+
+
+    <button mat-icon-button (click)="uploadProgram()" [disabled]="disableUploadButton ? 'disabled' : null"
+            color="primary" aria-label="Button which publishes the current LDL program" matTooltip="Publishes the current program to the LDL server">
+      <mat-icon>publish</mat-icon>
+    </button>
+
+    <input #ldlFile hidden="true" type="file" (change)="handleFileInput($event.target.files)" accept=".xml" />
+    <button for="ldl-file" (click)="ldlFile.click()"
+            mat-icon-button color="primary" aria-label="Button which uploads an existing program" matTooltip="Loads an existing LDL program">
+      <mat-icon>cloud_upload</mat-icon>
+    </button>
+
+    <button (click)="clearWorkspace()" mat-icon-button color="primary"
+            aria-label="Button which clears all blocks from the current workspace" matTooltip="Clear all blocks from the workspace">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </span>
+
+  <button (click)="openConnectionSettings()" mat-icon-button color="primary"
+    aria-label="Button which opens the LDL server connection settings" matTooltip="Open server settings">
+    <mat-icon>settings</mat-icon>
+  </button>
+
+  <span style="border-left: 1px solid grey; padding-left: 1em;">
+    <span *ngIf="findingServers">Finding servers...</span>
+    <span *ngIf="noServersFound">No servers found!</span>
+    <span *ngIf="!findingServers && !noServersFound"><mat-icon style="color: green;">done</mat-icon> {{numberOfServersDiscovered}} server(s) found</span>
+  </span>
+
+</div>
+
+<!-- see: https://codepen.io/juanialt/pen/prvzom -->
+<section id="blocklyContainer">
+  <div id="blocklyDiv"></div>
+</section>
+
+<!--<div id="blocklyDiv" style="width: 100%; height: 100%"></div>-->
+<xml id="toolbox" style="display: none">
+  <category name="LDL Instructions" colour="360">
+    <block type="ins_0_clear"></block>
+    <block type="ins_1_solid"></block>
+    <block type="ins_2_pattern"></block>
+    <block type="ins_3_slider"></block>
+    <block type="ins_4_fade"></block>
+    <block type="ins_5_stochastic"></block>
+    <block type="ins_6_blocks"></block>
+    <block type="ins_7_rainbow"></block>
+  </category>
+
+  <category name="LDL Values" colour="290">
+    <block type="fixedpixelscolour"></block>
+    <block type="pixelscolour"></block>
+  </category>
+
+  <category name="LDL Control" colour="210">
+    <block type="program"></block>
+    <block type="repeat"></block>
+  </category>
+</xml>

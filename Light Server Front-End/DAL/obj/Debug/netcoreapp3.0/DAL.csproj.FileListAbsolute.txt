@@ -1,9 +1,0 @@
-C:\LDL\Light-Server-Front-End\Light Server Front-End\DAL\bin\Debug\netcoreapp3.0\DAL.deps.json
-C:\LDL\Light-Server-Front-End\Light Server Front-End\DAL\bin\Debug\netcoreapp3.0\DAL.dll
-C:\LDL\Light-Server-Front-End\Light Server Front-End\DAL\bin\Debug\netcoreapp3.0\DAL.pdb
-C:\LDL\Light-Server-Front-End\Light Server Front-End\DAL\obj\Debug\netcoreapp3.0\DAL.csprojAssemblyReference.cache
-C:\LDL\Light-Server-Front-End\Light Server Front-End\DAL\obj\Debug\netcoreapp3.0\DAL.AssemblyInfoInputs.cache
-C:\LDL\Light-Server-Front-End\Light Server Front-End\DAL\obj\Debug\netcoreapp3.0\DAL.AssemblyInfo.cs
-C:\LDL\Light-Server-Front-End\Light Server Front-End\DAL\obj\Debug\netcoreapp3.0\DAL.csproj.CoreCompileInputs.cache
-C:\LDL\Light-Server-Front-End\Light Server Front-End\DAL\obj\Debug\netcoreapp3.0\DAL.dll
-C:\LDL\Light-Server-Front-End\Light Server Front-End\DAL\obj\Debug\netcoreapp3.0\DAL.pdb

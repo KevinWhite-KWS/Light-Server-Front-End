@@ -1,0 +1,9 @@
+<div class="container">
+  <ng-container *ngIf="discoveredServers">
+    <h2 class="title">LDL servers discovered!</h2>
+    <h4 *ngFor="let discoveredServer of discoveredServers" class="title">{{discoveredServer.ip}} running version {{discoveredServer.server}}</h4>
+  </ng-container>
+
+  <a routerLink="/detail">{{ 'PAGES.HOME.GO_TO_DETAIL' | translate }}</a>
+  <a routerLink="/editor">Editor</a>
+</div>

@@ -1,0 +1,24 @@
+nav {
+    display: none;
+}
+
+#blocklyTools {
+    position:absolute;
+    z-index:1;
+}
+
+#blocklyContainer {
+    position:absolute;
+    top:40px;
+    bottom:0;
+    width: 100%;
+}
+
+#blocklyDiv {
+  // padding-top: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
