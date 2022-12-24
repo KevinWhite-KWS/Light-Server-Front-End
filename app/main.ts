@@ -22,8 +22,7 @@ const args = process.argv.slice(1),
 
 function createWindow(): BrowserWindow {
 
-  const electronScreen = screen;
-  const size = electronScreen.getPrimaryDisplay().workAreaSize;
+  const size = screen.getPrimaryDisplay().workAreaSize;
 
   // Create the browser window.
   win = new BrowserWindow({
@@ -33,36 +32,28 @@ function createWindow(): BrowserWindow {
     height: size.height,
     webPreferences: {
       nodeIntegration: true,
-      allowRunningInsecureContent: (serve) ? true : false,
+      allowRunningInsecureContent: (serve),
       contextIsolation: false,  // false if you want to run e2e test with Spectron
-      // enableRemoteModule : true // true if you want to run e2e test with Spectron or use remote module in renderer context (ie. Angular)
-    }
+    },
   });
 
-
   if (serve) {
-    // win.webContents.openDevTools();
-    require('electron-reload')(__dirname, {
-      electron: require(path.join(__dirname, '/../node_modules/electron'))
-    });
+    const debug = require('electron-debug');
+    debug();
+
+    require('electron-reloader')(module);
     win.loadURL('http://localhost:4200');
   } else {
     // Path when running electron executable
     let pathIndex = './index.html';
 
     if (fs.existsSync(path.join(__dirname, '../dist/index.html'))) {
-       // Path when running electron in local folder
+      // Path when running electron in local folder
       pathIndex = '../dist/index.html';
     }
 
-    win.loadURL(url.format({
-      pathname: path.join(__dirname, pathIndex),
-      protocol: 'file:',
-      slashes: true
-    }));
-  
-
-
+    const url = new URL(path.join('file:', __dirname, pathIndex));
+    win.loadURL(url.href);
   }
 
   // Emitted when the window is closed.
@@ -72,6 +63,58 @@ function createWindow(): BrowserWindow {
     // when you should delete the corresponding element.
     win = null;
   });
+
+  // Emitted when the window is closed.
+  win.on('closed', () => {
+    // Dereference the window object, usually you would store window
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    win = null;
+  });
+
+  return win;
+
+  //const electronScreen = screen;
+  //const size = electronScreen.getPrimaryDisplay().workAreaSize;
+
+  //// Create the browser window.
+  //win = new BrowserWindow({
+  //  x: 0,
+  //  y: 0,
+  //  width: size.width,
+  //  height: size.height,
+  //  webPreferences: {
+  //    nodeIntegration: true,
+  //    allowRunningInsecureContent: (serve) ? true : false,
+  //    contextIsolation: false,  // false if you want to run e2e test with Spectron
+  //    // enableRemoteModule : true // true if you want to run e2e test with Spectron or use remote module in renderer context (ie. Angular)
+  //  }
+  //});
+
+
+  //if (serve) {
+  //  // win.webContents.openDevTools();
+  //  require('electron-reload')(__dirname, {
+  //    electron: require(path.join(__dirname, '/../node_modules/electron'))
+  //  });
+  //  win.loadURL('http://localhost:4200');
+  //} else {
+  //  // Path when running electron executable
+  //  let pathIndex = './index.html';
+
+  //  if (fs.existsSync(path.join(__dirname, '../dist/index.html'))) {
+  //     // Path when running electron in local folder
+  //    pathIndex = '../dist/index.html';
+  //  }
+
+  //  win.loadURL(url.format({
+  //    pathname: path.join(__dirname, pathIndex),
+  //    protocol: 'file:',
+  //    slashes: true
+  //  }));
+  //}
+
+
 
   return win;
 }

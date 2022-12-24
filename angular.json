@@ -1,7 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
+    "defaultCollection": "@angular-eslint/schematics",
+    "analytics": false
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -13,8 +14,12 @@
       "schematics": {
         "@schematics/angular:application": {
           "strict": true
+        },
+        "@schematics/angular:component": {
+          "style": "scss"
         }
       },
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
@@ -24,6 +29,7 @@
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -38,10 +44,11 @@
 
               // Custom LDL blockly
               "src/assets/blockly/ldl_compressed.js",
-              "src/assets/blockly/custom_blocks.js"              
+              "src/assets/blockly/custom_blocks.js"
             ],
             "customWebpackConfig": {
-              "path": "./angular.webpack.js"
+              "path": "./angular.webpack.js",
+              "replaceDuplicatePlugins": true
             }
           },
           "configurations": {
@@ -61,6 +68,22 @@
                 }
               ]
             },
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
             "web": {
               "optimization": false,
               "outputHashing": "none",
@@ -77,7 +100,7 @@
                 }
               ]
             },
-            "production": {
+            "web-production": {
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -89,7 +112,7 @@
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "with": "src/environments/environment.web.prod.ts"
                 }
               ]
             }
@@ -104,11 +127,14 @@
             "dev": {
               "browserTarget": "angular-electron:build:dev"
             },
+            "production": {
+              "browserTarget": "angular-electron:build:production"
+            },
             "web": {
               "browserTarget": "angular-electron:build:web"
             },
-            "production": {
-              "browserTarget": "angular-electron:build:production"
+            "web-production": {
+              "browserTarget": "angular-electron:build:web-production"
             }
           }
         },
@@ -125,15 +151,18 @@
             "polyfills": "src/polyfills-test.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
+            "inlineStyleLanguage": "scss",
             "scripts": [],
             "styles": [
               "src/styles.scss"
             ],
             "assets": [
+              "src/favicon.ico",
               "src/assets"
             ],
             "customWebpackConfig": {
-              "path": "./angular.webpack.js"
+              "path": "./angular.webpack.js",
+              "replaceDuplicatePlugins": true
             }
           }
         },
@@ -163,14 +192,5 @@
       }
     }
   },
-  "defaultProject": "angular-electron",
-  "schematics": {
-    "@schematics/angular:component": {
-      "prefix": "app",
-      "style": "scss"
-    },
-    "@schematics/angular:directive": {
-      "prefix": "app"
-    }
-  }
+  "defaultProject": "angular-electron"
 }
