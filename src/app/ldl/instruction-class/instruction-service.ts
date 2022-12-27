@@ -130,12 +130,13 @@ export class InstructionService {
   }
   */
 
-  uploadLdlProgram(ip: string, username: string, password: string, ldlProgram: string) {
+  uploadLdlProgram(ip: string, username: string, password: string, ldlProgram: string, storePermanently: boolean = false) {
     const ldlProgramToSend = {
       ip: ip,
       username: username,
       password: password,
-      program: ldlProgram
+      program: ldlProgram,
+      storePermanently: storePermanently
     };
     const ldlProgramToSendJson = JSON.stringify(ldlProgramToSend);
 

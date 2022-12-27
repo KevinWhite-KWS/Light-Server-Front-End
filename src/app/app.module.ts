@@ -23,6 +23,7 @@ import { AppComponent } from './app.component';
 
 import { ProgramBlocklyComponent } from "./ldl/program-blockly.component";
 import { ProgramBlockySettingsComponent } from "./ldl/program-blockly-settings.component";
+import { ProgramBlockyPublisherComponent } from "./ldl/program-blockly-publisher.component";
 
 import { InstructionService } from "./ldl/instruction-class/instruction-service";
 
@@ -34,7 +35,8 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>  new Transl
   declarations: [
     AppComponent, 
     ProgramBlocklyComponent,
-    ProgramBlockySettingsComponent
+    ProgramBlockySettingsComponent,
+    ProgramBlockyPublisherComponent
   ],
 
   // entryComponents: [

@@ -1,0 +1,14 @@
+<mat-dialog-content>
+  <form>
+    <p style="margin-bottom:2em;">Click Publish below to send your program to the selected light server.  The program will begin immediatly.</p>
+
+    <mat-checkbox [(ngModel)]="store" name="storeProgram">
+      Load this program after switching off the light server?
+    </mat-checkbox>
+    <p>Checking this will cause the same program to load next time the light server is started.  <bold>WARNING!</bold>  This should be not be everytime.  There is a limited number of times a program can be stored permanently.  Use this option sparingly and with caution.</p>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="handleCloseDialog(true)">Publish</button>
+  <button mat-button [mat-dialog-close]="handleCloseDialog(false)">Close</button>
+</mat-dialog-actions>

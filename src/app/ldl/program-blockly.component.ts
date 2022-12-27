@@ -3,7 +3,7 @@ import { Router }from '@angular/router';
 import { InstructionService, LdlServerInfo } from "./instruction-class/instruction-service";
 import { MatDialog } from '@angular/material/dialog';
 
-import { Subscription } from "rxjs";
+import { publish, Subscription } from "rxjs";
 
 import { saveAs } from 'file-saver';
 import { FileSaverService } from 'ngx-filesaver';
@@ -11,6 +11,8 @@ import { FileSaverService } from 'ngx-filesaver';
 import { LdlServer } from "./ldl-server";
 import { ProgramBlockySettingsComponent } from "./program-blockly-settings.component";
 import { ConnectionSettings } from './connection-settings';
+import { ProgramBlockyPublisherComponent } from './program-blockly-publisher.component';
+import { PublisherSettings } from './publisher-settings';
 
 
 declare var Blockly: any;
@@ -189,7 +191,20 @@ export class ProgramBlocklyComponent implements OnInit, OnDestroy {
     Blockly.LDL.addReservedWords('code');
     const code = Blockly.LDL.workspaceToCode(this.workspace);
     console.log(code);
-    this.sendLightProgram(code, username, password);
+
+    let dialogRef = this.dialog.open(ProgramBlockyPublisherComponent, {
+      data: this.connectionSettings
+    });
+
+    dialogRef.afterClosed().subscribe((publishSettings: PublisherSettings) => {
+      if (publishSettings.publish === false) {
+        return;
+      }
+
+      this.sendLightProgram(code, username, password, publishSettings.store);
+    });
+
+    // this.sendLightProgram(code, username, password);
   }
 
   clearWorkspace(): void {
@@ -199,18 +214,9 @@ export class ProgramBlocklyComponent implements OnInit, OnDestroy {
   }
 
 
-  sendLightProgram(serializedProgram:string, username: string, password: string) {
+  sendLightProgram(serializedProgram:string, username: string, password: string, storePermanently: boolean = false) {
     // const username = 'Super';
     // const password = '1xYa1man2*';
-    // NOTE: connected to Eero
-    // const ip = '192.168.5.210';
-    // NOTE: connected directly to router
-    // const ip = '192.168.1.210';
-
-
-    //if(!this.selectedServer) {
-    //  return;
-    //}
 
     // if(this.selectedServer === "All") {
     if (this.connectionSettings.server === "All") {
@@ -225,29 +231,16 @@ export class ProgramBlocklyComponent implements OnInit, OnDestroy {
       this.connectionSettings.servers.forEach((ldlServer) => {
         console.log(`Sending program to server @ ${ldlServer.ip}`);
         // this.instructionService.uploadLdlProgram(ldlServer.ip, username, password, serializedProgram);
-        this.instructionService.uploadLdlProgram(ldlServer.ip, this.connectionSettings.username, this.connectionSettings.password, serializedProgram);
+        this.instructionService.uploadLdlProgram(ldlServer.ip, this.connectionSettings.username, this.connectionSettings.password, serializedProgram, storePermanently);
       });
     } else {
       console.log(`Sending program to server @ ${this.connectionSettings.server}`);
       // console.log(`Sending program to server @ ${this.selectedServer}`);
       // this.instructionService.uploadLdlProgram(this.connectionSettings.server, username, password, serializedProgram);
-      this.instructionService.uploadLdlProgram(this.connectionSettings.server, this.connectionSettings.username, this.connectionSettings.password, serializedProgram);
+      this.instructionService.uploadLdlProgram(this.connectionSettings.server, this.connectionSettings.username, this.connectionSettings.password, serializedProgram, storePermanently);
       // this.instructionService.uploadLdlProgram(this.selectedServer, username, password, serializedProgram);
     }
 
-    // // send the program to each of the available servers
-    // if (!this.servers) {
-    //   return;
-    // }
-
-    // this.servers.forEach(s => {
-
-    //   console.log("Sending program to server @" + s.ipAddress);
-    //   this.instructionService.uploadLdlProgram(s.ipAddress, username, password, serializedProgram)
-    //     .subscribe(o => {
-    //     });
-
-    //   });
   }
 
   //selectServer(selectedServer) {

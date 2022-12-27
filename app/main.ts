@@ -11,8 +11,6 @@ let clientPort = 8888;
 let udpServer = null;
 /** END: TESTING ONLY */
 
-// const ipcMain = require('electron').ipcMain; 
-
 // Initialize remote module
 require('@electron/remote/main').initialize();
 
@@ -71,50 +69,6 @@ function createWindow(): BrowserWindow {
     // when you should delete the corresponding element.
     win = null;
   });
-
-  return win;
-
-  //const electronScreen = screen;
-  //const size = electronScreen.getPrimaryDisplay().workAreaSize;
-
-  //// Create the browser window.
-  //win = new BrowserWindow({
-  //  x: 0,
-  //  y: 0,
-  //  width: size.width,
-  //  height: size.height,
-  //  webPreferences: {
-  //    nodeIntegration: true,
-  //    allowRunningInsecureContent: (serve) ? true : false,
-  //    contextIsolation: false,  // false if you want to run e2e test with Spectron
-  //    // enableRemoteModule : true // true if you want to run e2e test with Spectron or use remote module in renderer context (ie. Angular)
-  //  }
-  //});
-
-
-  //if (serve) {
-  //  // win.webContents.openDevTools();
-  //  require('electron-reload')(__dirname, {
-  //    electron: require(path.join(__dirname, '/../node_modules/electron'))
-  //  });
-  //  win.loadURL('http://localhost:4200');
-  //} else {
-  //  // Path when running electron executable
-  //  let pathIndex = './index.html';
-
-  //  if (fs.existsSync(path.join(__dirname, '../dist/index.html'))) {
-  //     // Path when running electron in local folder
-  //    pathIndex = '../dist/index.html';
-  //  }
-
-  //  win.loadURL(url.format({
-  //    pathname: path.join(__dirname, pathIndex),
-  //    protocol: 'file:',
-  //    slashes: true
-  //  }));
-  //}
-
-
 
   return win;
 }
@@ -222,13 +176,17 @@ ipcMain.on('publish-ldl-program', (event, message)=> {
   const encodedUsernamePassword = Buffer.from(`${messageObj.username}:${messageObj.password}`).toString('base64');
 
   // send program
+  const storePermanently = messageObj.storePermanently;
+  const endpoint = storePermanently ? "/program/stored" : "/program";
+
   console.log(`sending ldl program: ${messageObj.program}`);
+  console.log(messageObj);
   const request = net.request({
     method: 'POST',
     protocol: 'http:',
     hostname: messageObj.ip,
     port: 80,
-    path: '/program'
+    path: endpoint
   });
   // request.setHeader("Authorization", `Basic U3VwZXI6MXhZYTFtYW4yKg==`);
   request.setHeader("Authorization", `Basic ${encodedUsernamePassword}`);
